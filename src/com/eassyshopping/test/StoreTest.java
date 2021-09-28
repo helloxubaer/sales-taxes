@@ -1,4 +1,4 @@
-package com.eassyshopping;
+package com.eassyshopping.test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -7,6 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+
+import com.eassyshopping.Item;
+import com.eassyshopping.Store;
 
 class StoreTest {
 	
@@ -88,11 +91,22 @@ class StoreTest {
 		theStore.addItemInStore(theItem);
 		
 		int beforSell = theItem.getQuantity();
-		theStore.sellItemsFromStore("Chocolate", 300);
+		theStore.sellItemsFromStore("Chocolate", 10);
 		int afterSell = theStore.getItemsInStore().get("Chocolate").getQuantity();
 		
 		//theStore.sellItemsFromStore("Chocolate");
-		assertEquals(30,afterSell," Should reduce from item's quantity");
+		assertEquals(20,afterSell," Should reduce from item's quantity");
+	}
+	
+	@Test
+	@DisplayName("Check if an item & quantity available")
+	void checkItemAvaibality() {
+		theStore = new Store();
+		theItem = new Item("Chocolate", 10, false, false, 30);
+		theStore.addItemInStore(theItem);
+		
+		assertEquals(true,theStore.checkItemAvaibality("Chocolate",30),
+				"Should return true if available");
 	}
 
 }

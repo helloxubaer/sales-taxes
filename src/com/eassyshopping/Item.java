@@ -16,7 +16,7 @@ public class Item {
 		this.name = name;
 		this.price = price;
 		this.isImported = isImported;
-		this.isFood = isFood;
+		this.isFood = isFood; //(is exempt ??? medicine, books also
 		this.quantity = quantity;
 	}
 

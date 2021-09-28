@@ -31,12 +31,8 @@ public class Main {
 		//theItem = new Item("Medicine", 20, true, false, 5);
 		//theFirstStore.addItemInStore(theItem);
         
-		theFirstStore.displayItemsInTheStore();
-		theFirstStore.sellItemsFromStore("Banana", 4);
-		theFirstStore.sellItemsFromStore("Banana", 66); // prohibit
-		theFirstStore.sellItemsFromStore("Chocolate", 10);
-		theFirstStore.sellItemsFromStore("Chocolate", 111); // prohibit
-		theFirstStore.displayItemsInTheStore();
+		theFirstStore.shopping();
+		//theFirstStore.shopping();
 		
 
 	}

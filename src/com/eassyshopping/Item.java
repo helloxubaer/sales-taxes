@@ -6,17 +6,17 @@ package com.eassyshopping;
  */
 public class Item {
 	private String name;
-	private int price;
+	private double price;
 	private boolean isImported;
-	private boolean isFood;
+	private boolean isExempted;
 	private int quantity;
 	
-	public Item(String name, int price, boolean isImported, boolean isFood,
+	public Item(String name, double price, boolean isImported, boolean isExempted,
 			int quantity) {
 		this.name = name;
 		this.price = price;
 		this.isImported = isImported;
-		this.isFood = isFood; //(is exempt ??? medicine, books also
+		this.isExempted = isExempted; //(is exempt ??? medicine, books also
 		this.quantity = quantity;
 	}
 
@@ -24,7 +24,7 @@ public class Item {
 		return name;
 	}
 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 
@@ -32,8 +32,8 @@ public class Item {
 		return isImported;
 	}
 
-	public boolean isFood() {
-		return isFood;
+	public boolean isExempted() {
+		return isExempted;
 	}
 
 	public int getQuantity() {
@@ -56,7 +56,8 @@ public class Item {
 
 	@Override
 	public String toString() {
-		return "Item [name=" + name + ", price=" + price + ", isImported=" + isImported + ", isFood=" + isFood
+		return "Item [name=" + name + ", price=" + price + ", isImported=" + 
+				isImported + ", isExempted=" + isExempted
 				+ ", quantity=" + quantity + "]";
 	}
 	

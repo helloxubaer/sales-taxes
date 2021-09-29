@@ -1,5 +1,6 @@
 package com.eassyshopping;
 
+import java.text.DecimalFormat;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -11,29 +12,60 @@ public class Main {
 
 	private static Scanner scanner = new Scanner(System.in);
 	private static Store theFirstStore = new Store();
+	private static ShoppingCart firstCustomer = new ShoppingCart("first Customer");
 	
 	public static void main(String[] args) {
 		
+
+
         /** Manual input can be replaced with database
          *  or other sources
          */
-
+		//Item(String name, double price, boolean isImported, 
+		//boolean isExempted, int quantity)
 		Item theItem = new Item("Chocolate", 10, false, false, 1);
 		theFirstStore.addItemInStore(theItem);
 		theItem = new Item("Chocolate", 10, false, false, 10);
 		theFirstStore.addItemInStore(theItem);
-		theItem = new Item("Banana", 100, false, false, 30);
+		theItem = new Item("Banana", 100, false, true, 30);
 		theFirstStore.addItemInStore(theItem);
-		theItem = new Item("Banana", 100, false, false, 3);
+		theItem = new Item("Banana", 100, false, true, 3);
 		theFirstStore.addItemInStore(theItem);
-		theItem = new Item("Banana", 100, false, false, 10);
+		theItem = new Item("Banana", 100, false, true, 10);
 		theFirstStore.addItemInStore(theItem);
+		
+		
+		theItem = new Item("Book", 12.49, false, true, 10);
+		theFirstStore.addItemInStore(theItem);
+		theItem = new Item("chocolate bar", .85, false, true, 10);
+		theFirstStore.addItemInStore(theItem);
+		theItem = new Item("Music cd", 14.99, false, false, 10);
+		theFirstStore.addItemInStore(theItem);
+		
+		theItem = new Item("imported box of chocolates", 10.00, true, true, 10);
+		theFirstStore.addItemInStore(theItem);
+		theItem = new Item("imported bottole of perfume", 47.50, true, false, 10);
+		theFirstStore.addItemInStore(theItem);
+		
+		//theItem = new Item("imported bottle of perfume", 27.99, true, false, 10);
+		//theFirstStore.addItemInStore(theItem);
+		theItem = new Item("bottle of perfume", 18.99, false, false, 10);
+		theFirstStore.addItemInStore(theItem);
+		theItem = new Item("packet of headache pills", 9.75, false, true, 10);
+		theFirstStore.addItemInStore(theItem);
+		theItem = new Item("box of imported chocolates", 11.25, true, true, 10);
+		theFirstStore.addItemInStore(theItem);
+
+		
+		
+		
 		//theItem = new Item("Medicine", 20, true, false, 5);
 		//theFirstStore.addItemInStore(theItem);
         
-		theFirstStore.shopping();
+		theFirstStore.shopping(firstCustomer);
 		//theFirstStore.shopping();
-		
+		//firstCustomer.calculateTax();
+		firstCustomer.calculatePriceWithTax();
 
 	}
 

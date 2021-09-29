@@ -2,6 +2,7 @@ package com.eassyshopping;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 /*
@@ -13,7 +14,7 @@ public class ShoppingCart {
     
 	public ShoppingCart(String name) {
 		this.name = name;
-		this.shoppingCart = new HashMap<Item, Integer>();
+		this.shoppingCart = new LinkedHashMap<Item, Integer>();
 	}
 	
 	// add to cart method 
@@ -47,14 +48,14 @@ public class ShoppingCart {
 		return Math.ceil(theNumber/.05)*.05;
 	}
 	// return 2 decimal places
-	private double twoDecimalPlaces(double theNmber) {
-		//String.format(java.util.Locale.US,"%.2f", theNmber)
-		return Math.round(theNmber * 100.0) / 100.0;
+	private String twoDecimalPlaces(double theNmber) {
+		return String.format(java.util.Locale.US,"%.2f", theNmber);	
+		//return Math.round(theNmber * 100.0) / 100.0;
 		
 	}
 	//calculate cost
-	public void calculatePriceWithTax() {
-		System.out.println("\n ======= Receipt ======= \n");
+	public void calculateBillWithTax() {
+		System.out.println("\n======= Receipt =======");
 		String receipt;
 		double totalBill = 0.0;
 		double totalSalesTaxes = 0.0;
@@ -79,10 +80,10 @@ public class ShoppingCart {
 			totalBill = totalBill + priceAfterTax;		
 			//<quantity> <name> at <price>
 			receipt ="> " + item.getValue() + " " + item.getKey().getName();
-			receipt = receipt + " at " +twoDecimalPlaces(priceAfterTax);
+			receipt = receipt + ": " +twoDecimalPlaces(priceAfterTax);
 			System.out.println(receipt);	
 		}
-		System.out.println("> Sales Taxes: " + totalSalesTaxes);
+		System.out.println("> Sales Taxes: " + twoDecimalPlaces(totalSalesTaxes));
 		// print two decimal places
 		System.out.println("> Total: " + twoDecimalPlaces(totalBill));
 		

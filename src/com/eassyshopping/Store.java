@@ -80,7 +80,7 @@ public class Store {
 		
 	}
 	
-	public void shopping() {
+	public void shopping(ShoppingCart theCart) {
 		sc = new Scanner(System.in);
 		while (true) {
 			displayItemsInTheStore();
@@ -97,6 +97,8 @@ public class Store {
 			if(checkItemAvaibality(buyingItemName,buyingQuantity)) {
 				// To-do
 				//****** put/add to basket****
+				Item buyingtItem = itemsInStore.get(buyingItemName);
+				theCart.addToShoppingCart(buyingtItem, buyingQuantity);
 				
 				sellItemsFromStore(buyingItemName,buyingQuantity);
 				
@@ -104,7 +106,7 @@ public class Store {
 			System.out.println("Continue shopping ? press y/n: ");
 			String shopContinue = sc.nextLine().trim();
 			if(shopContinue.toUpperCase().equalsIgnoreCase("n")) {
-				System.out.println("To bill counter ===>>!");
+				//System.out.println("To bill counter ===>>\n");
 				break;
 			}
 		}

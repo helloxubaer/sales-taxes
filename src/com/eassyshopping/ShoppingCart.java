@@ -31,17 +31,6 @@ public class ShoppingCart {
 	}
 	
 	
-	// print basket, remove later (???)
-	//to-do
-	//public void calculateTax() {
-		//for(Map.Entry<Item, Integer> item : shoppingCart.entrySet()) {
-			//System.out.println(item.getKey());
-			//System.out.println("quantity: "+item.getValue());
-			//System.out.println("before tax price: "
-			//				+ item.getValue()*item.getKey().getPrice());
-		//}
-		
-	//}
 	
 	// round up to nearest .05
 	private double roundUp(double theNumber) {
@@ -90,12 +79,12 @@ public class ShoppingCart {
 	}
 	
 	// no need(???)
-	@Override
-	public String toString() {
-		
-		
-		return "ShoppingCart [name=" + name + ", shoppingCart=" + shoppingCart + "]";
-	}
+//	@Override
+//	public String toString() {
+//		
+//		
+//		return "ShoppingCart [name=" + name + ", shoppingCart=" + shoppingCart + "]";
+//	}
 
 	public String getName() {
 		return name;

@@ -15,11 +15,7 @@ class StoreTest {
 	
 	private Item theItem;
 	private Store theStore;
-	//@Before
-	//public void init() {
-	////	System.out.println("at the begining..");
-	//	itemsInStore = new HashMap<String, Item>();	
-	//}
+
 
 	@Test
 	@DisplayName("addItemInStore: Method should add items to store list")
@@ -64,7 +60,7 @@ class StoreTest {
 		theItem = new Item("Chocolate", 10, false, false, 30);
 		theStore.addItemInStore(theItem);
 		//theStore.sellItemsFromStore("Chocolate");
-		assertEquals(theItem,theStore.getItemByName("Chocolate"),
+		assertEquals(theItem,theStore.getItemsInStore().get("Chocolate"),
 				"Should return " + "the Chocholate item");
 	}
 	
@@ -75,7 +71,6 @@ class StoreTest {
 		theItem = new Item("Chocolate", 10, false, false, 30);
 		theStore.addItemInStore(theItem);
 		
-		int beforSell = theItem.getQuantity();
 		theStore.sellItemsFromStore("Chocolate", 30);
 		int afterSell = theStore.getItemsInStore().get("Chocolate").getQuantity();
 		
@@ -89,8 +84,7 @@ class StoreTest {
 		theStore = new Store();
 		theItem = new Item("Chocolate", 10, false, false, 30);
 		theStore.addItemInStore(theItem);
-		
-		int beforSell = theItem.getQuantity();
+
 		theStore.sellItemsFromStore("Chocolate", 10);
 		int afterSell = theStore.getItemsInStore().get("Chocolate").getQuantity();
 		
@@ -98,15 +92,25 @@ class StoreTest {
 		assertEquals(20,afterSell," Should reduce from item's quantity");
 	}
 	
+//	@Test
+//	@DisplayName("Check if an item & quantity available")
+//	void checkItemAvaibality() {
+//		theStore = new Store();
+//		theItem = new Item("Chocolate", 10, false, false, 30);
+//		theStore.addItemInStore(theItem);
+//		
+//		assertEquals(true,theStore.checkItemAvaibality("Chocolate",30),
+//				"Should return true if available");
+//	}
+
 	@Test
-	@DisplayName("Check if an item & quantity available")
-	void checkItemAvaibality() {
+	void getItemNameFromUser() {
 		theStore = new Store();
 		theItem = new Item("Chocolate", 10, false, false, 30);
 		theStore.addItemInStore(theItem);
-		
-		assertEquals(true,theStore.checkItemAvaibality("Chocolate",30),
+		assertEquals(true,theStore.verifyItemName("Chocolate"),
 				"Should return true if available");
 	}
 
+	
 }

@@ -54,12 +54,12 @@ public class Item {
 		}	
 	}
 
-	@Override
-	public String toString() {
-		return "Item [name=" + name + ", price=" + price + ", isImported=" + 
-				isImported + ", isExempted=" + isExempted
-				+ ", quantity=" + quantity + "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Item [name=" + name + ", price=" + price + ", isImported=" + 
+//				isImported + ", isExempted=" + isExempted
+//				+ ", quantity=" + quantity + "]";
+//	}
 	
 	
 	

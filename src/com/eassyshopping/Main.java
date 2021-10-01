@@ -8,13 +8,15 @@ package com.eassyshopping;
 public class Main {
 
 	
+	// ## Create a store class ## //
 	private static Store theFirstStore = new Store();
+	// ## Create a shopping cart for a customer ## //
 	private static ShoppingCart firstCustomer = new ShoppingCart("first Customer");
 	
 	public static void main(String[] args) {
 
-
-        /** Manual input can be replaced with database
+//============================================================================//
+        /** Adding item in store manually can be replaced with database
          *  or other static sources
          */
 		//Item(String name, double price, boolean isImported, 
@@ -41,13 +43,15 @@ public class Main {
 		theFirstStore.addItemInStore(theItem);
 		theItem = new Item("box of imported chocolates", 11.25, true, true, 10);
 		theFirstStore.addItemInStore(theItem);
+//============================================================================//		
 
-		theFirstStore.shopping(firstCustomer);
-		firstCustomer.calculateBillWithTax();
+		
+		theFirstStore.shopping(firstCustomer); //start shopping for 'firstCustomer'
+		firstCustomer.calculateAndPayBillWithTax(); // 'firstCustomer'
+		
+		
 
 	}
 
-	//To-do
-	// key lowercase, delete if out of stock
 	
 }

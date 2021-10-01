@@ -16,7 +16,7 @@ public class Item {
 		this.name = name;
 		this.price = price;
 		this.isImported = isImported;
-		this.isExempted = isExempted; //(is exempt ??? medicine, books also
+		this.isExempted = isExempted;
 		this.quantity = quantity;
 	}
 
@@ -47,19 +47,11 @@ public class Item {
 	}
 	
 	
-	// will reduce this part of code(???)
 	public void reduceQuantity(int quantityBought) {
 		if (quantityBought > 0) {
 			this.quantity = this.quantity - quantityBought;
 		}	
 	}
-
-//	@Override
-//	public String toString() {
-//		return "Item [name=" + name + ", price=" + price + ", isImported=" + 
-//				isImported + ", isExempted=" + isExempted
-//				+ ", quantity=" + quantity + "]";
-//	}
 	
 	
 	

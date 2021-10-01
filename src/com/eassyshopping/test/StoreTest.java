@@ -11,10 +11,14 @@ import org.junit.jupiter.api.Test;
 import com.eassyshopping.Item;
 import com.eassyshopping.Store;
 
+/*
+ * The StoreTest class test few significant methods 
+ */
 class StoreTest {
 	
 	private Item theItem;
 	private Store theStore;
+	
 
 
 	@Test
@@ -55,11 +59,10 @@ class StoreTest {
 	
 	@Test
 	@DisplayName("getItemByName: get an item by it's name")
-	void getItemByName() {
+	void getItemsInStore() {
 		theStore = new Store();
 		theItem = new Item("Chocolate", 10, false, false, 30);
 		theStore.addItemInStore(theItem);
-		//theStore.sellItemsFromStore("Chocolate");
 		assertEquals(theItem,theStore.getItemsInStore().get("Chocolate"),
 				"Should return " + "the Chocholate item");
 	}
@@ -74,7 +77,7 @@ class StoreTest {
 		theStore.sellItemsFromStore("Chocolate", 30);
 		int afterSell = theStore.getItemsInStore().get("Chocolate").getQuantity();
 		
-		//theStore.sellItemsFromStore("Chocolate");
+
 		assertEquals(0,afterSell," Should reduce from item's quantity");
 	}
 	
@@ -88,20 +91,9 @@ class StoreTest {
 		theStore.sellItemsFromStore("Chocolate", 10);
 		int afterSell = theStore.getItemsInStore().get("Chocolate").getQuantity();
 		
-		//theStore.sellItemsFromStore("Chocolate");
 		assertEquals(20,afterSell," Should reduce from item's quantity");
 	}
 	
-//	@Test
-//	@DisplayName("Check if an item & quantity available")
-//	void checkItemAvaibality() {
-//		theStore = new Store();
-//		theItem = new Item("Chocolate", 10, false, false, 30);
-//		theStore.addItemInStore(theItem);
-//		
-//		assertEquals(true,theStore.checkItemAvaibality("Chocolate",30),
-//				"Should return true if available");
-//	}
 
 	@Test
 	void getItemNameFromUser() {

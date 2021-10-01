@@ -1,10 +1,8 @@
 package com.eassyshopping;
 
 import java.util.Collections;
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 /*
@@ -16,7 +14,7 @@ public class Store {
 	private Scanner sc;
 
 	public Store() {
-		this.itemsInStore = new LinkedHashMap<String, Item>();
+		this.itemsInStore = new LinkedHashMap<>();
 	}
 	
 	// add item to a store by store manager
@@ -30,34 +28,12 @@ public class Store {
 				theItem.updateQuantity(checkItem.getQuantity());				
 			}
 			// not found, add the item
-			itemsInStore.put(theItem.getName(), theItem);
+			itemsInStore.put(theItem.getName().toLowerCase(), theItem);
 			return true;
 		}else {
 			return false;
-		}
-		
+		}		
 	}
-	
-	// reduce sold quantity from available store
-	public void sellItemsFromStore(String itemName, int desiredQuntity) {
-		Item sellingItem = itemsInStore.get(itemName);
-		sellingItem.reduceQuantity(desiredQuntity);
-	}
-	
-
-	
-	// verify item name provided by user
-	public boolean verifyItemName(String itemName) {
-		Item checkingItem = itemsInStore.get(itemName);
-		if(checkingItem == null) {
-			return false;
-		}else {
-			return true;
-		}
-		
-	}
-	
-
 	
 	// display available items in store
 	private void displayItemsInTheStore() {
@@ -71,14 +47,31 @@ public class Store {
 			tempItem.getPrice() + ", available stock: " + tempItem.getQuantity();
 			System.out.println(itemDescription);
 			itemNr++;
-		}
+		}		
+	}
+
+	// verify item name provided by user
+	public boolean verifyItemName(String itemName) {
+		Item checkingItem = itemsInStore.get(itemName);
+		return(checkingItem != null);
 		
+	}
+		
+	// get item name, check if it is in store
+	private String getItemNameFromUser() {
+		while(true) {
+			String theName = sc.nextLine().trim().toLowerCase();
+			if(!verifyItemName(theName)) {
+				System.out.println("invalid name! Enter again: ");
+			}else {
+				return theName;
+			}
+		}
 	}
 	
 	//get available quantity
 	public int getQuantity(String itemName) {
 		Item checkingItem = itemsInStore.get(itemName);
-		//System.out.println(" checkingItem: "+checkingItem);
 		return checkingItem.getQuantity();
 		
 	}
@@ -109,34 +102,27 @@ public class Store {
 		
 		return inputQuantity;
 	}
-
-	// get item name, check if it is in store
-	private String getItemNameFromUser() {
-		while(true) {
-			String theName = sc.nextLine().trim();
-			if(!verifyItemName(theName)) {
-				System.out.println("invalid!");
-			}else {
-				return theName;
-			}
-			}
-	}	
+	
+	
+	// reduce sold quantity from available store
+	public void sellItemsFromStore(String itemName, int desiredQuntity) {
+		Item sellingItem = itemsInStore.get(itemName);
+		sellingItem.reduceQuantity(desiredQuntity);
+	}
+	
 	// continue shop
 	public boolean isShoppingContinue() {
 		while(true) {
 			System.out.println("Continue shopping ? press y/n: ");
 			String theName = sc.nextLine().trim();
-			if(theName.toLowerCase().equals("n")) {
+			if(theName.equalsIgnoreCase("n")) {
 				return false;
-			}else if(theName.toLowerCase().equals("y")) {
+			}else if(theName.equalsIgnoreCase("y")) {
 				return true;
-			}else {
-				continue;
 			}
-			}
+		}
 	}
-	
-	
+		
 	// if item available, add to cart>>> print calculated receipt
 	public void shopping(ShoppingCart theCart) {
 		sc = new Scanner(System.in);
@@ -149,10 +135,7 @@ public class Store {
 			
 			Item buyingtItem = itemsInStore.get(buyingItemName);
 			theCart.addToShoppingCart(buyingtItem, buyingQuantity);
-			sellItemsFromStore(buyingItemName,buyingQuantity);
-			
-			// to-do
-			// item key should be lower case(???) to make user friendly
+			sellItemsFromStore(buyingItemName,buyingQuantity);			
 			
 			if(!isShoppingContinue()) {
 				break;
@@ -160,10 +143,8 @@ public class Store {
 		}
 		sc.close();
 	}
+		
 	public Map<String, Item> getItemsInStore() {
 		return Collections.unmodifiableMap(itemsInStore);
-	}
-
-
-	
+	}	
 }

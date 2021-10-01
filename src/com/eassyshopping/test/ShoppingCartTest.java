@@ -12,11 +12,13 @@ import org.junit.jupiter.api.Test;
 
 import com.eassyshopping.Item;
 import com.eassyshopping.ShoppingCart;
-import com.eassyshopping.Store;
 
+/*
+ * The ShoppingCartTest  test two important methods
+ */
 class ShoppingCartTest {
-	private final PrintStream standardOut = System.out;
-	private final ByteArrayOutputStream outputStreamCaptor = 
+	private PrintStream standardOut = System.out;
+	private ByteArrayOutputStream outputStreamCaptor = 
 					new ByteArrayOutputStream();
 
 	@BeforeEach
@@ -29,29 +31,26 @@ class ShoppingCartTest {
 	}
 	
 	
-	private Item theItem;
-	private Store theStore;
-	private ShoppingCart theCart;
+
 	
 	
 	@Test
 	void addToShoppingCart() {
-		theCart = new ShoppingCart("customer");
-		theItem = new Item("Chocolate", 10, false, false, 30);
+		ShoppingCart theCart = new ShoppingCart("customer");
+		Item theItem = new Item("Chocolate", 10, false, false, 30);
 		theCart.addToShoppingCart(theItem, 10);
 		
-		//theItem = new Item("Chocolate", 10, false, false, 30);
 		theCart.addToShoppingCart(theItem, 25);
 		
-		theCart.getShoppingCart().get(theItem);	
+
 		assertEquals(35,theCart.getShoppingCart().get(theItem),"should "
 				+ "return item quantity in basket");
 	}
 	
 	@Test
 	@DisplayName("Calculate price with tax: INPUT-1")
-	void calculateBillWithTaxInput1() {
-		theCart = new ShoppingCart("customer");
+	void calculateAndPayBillWithTaxInput1() {
+		ShoppingCart theCart = new ShoppingCart("customer");
 		
 		Item theItem1 = new Item("Book", 12.49, false, true, 30);
 		theCart.addToShoppingCart(theItem1, 1);
@@ -62,7 +61,7 @@ class ShoppingCartTest {
 		Item theItem3 = new Item("chocolate bar", 0.85, false, true, 30);
 		theCart.addToShoppingCart(theItem3, 1);
 		
-		theCart.calculateBillWithTax();
+		theCart.calculateAndPayBillWithTax();
 		String expectedString =
 				"======= Receipt =======\r\n"
 				+ "> 1 Book: 12.49\r\n"
@@ -77,8 +76,8 @@ class ShoppingCartTest {
 	
 	@Test
 	@DisplayName("Calculate price with tax: INPUT-2")
-	void calculateBillWithTaxInput2() {
-		theCart = new ShoppingCart("customer");
+	void calculateAndPayBillWithTaxInput2() {
+		ShoppingCart theCart = new ShoppingCart("customer");
 		
 		Item theItem1 = new Item("imported box of chocolates", 10.00, true, true, 10);
 		theCart.addToShoppingCart(theItem1, 1);
@@ -87,7 +86,7 @@ class ShoppingCartTest {
 		theCart.addToShoppingCart(theItem2, 1);
 		
 		
-		theCart.calculateBillWithTax();
+		theCart.calculateAndPayBillWithTax();
 		String expectedString =
 				"======= Receipt =======\r\n"
 				+ "> 1 imported box of chocolates: 10.50\r\n"
@@ -101,8 +100,8 @@ class ShoppingCartTest {
 	
 	@Test
 	@DisplayName("Calculate price with tax: INPUT-3")
-	void calculateBillWithTaxInput3() {
-		theCart = new ShoppingCart("customer");
+	void calculateAndPayBillWithTaxInput3() {
+		ShoppingCart theCart = new ShoppingCart("customer");
 		
 		Item theItem1 = new Item("imported bottle of perfume", 27.99, true, false, 10);
 		theCart.addToShoppingCart(theItem1, 1);
@@ -116,7 +115,7 @@ class ShoppingCartTest {
 		Item theItem4 = new Item("box of imported chocolates", 11.25, true, true, 10);
 		theCart.addToShoppingCart(theItem4, 1);
 		
-		theCart.calculateBillWithTax();
+		theCart.calculateAndPayBillWithTax();
 		String expectedString =
 				"======= Receipt =======\r\n"
 				+ "> 1 imported bottle of perfume: 32.19\r\n"

@@ -46,13 +46,10 @@ public class Item {
 		}
 	}
 	
-	
 	public void reduceQuantity(int quantityBought) {
 		if (quantityBought > 0) {
 			this.quantity = this.quantity - quantityBought;
 		}	
 	}
-	
-	
 	
 }

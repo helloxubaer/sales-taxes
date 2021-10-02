@@ -1,14 +1,11 @@
 package com.eassyshopping;
-
-
 /*
  * The Main class calls Store class's method to add items in store
  * Provide the functionality to user
  */
 public class Main {
 
-	
-	// ## Create a store class ## //
+	// ## Create a store object ## //
 	private static Store theFirstStore = new Store();
 	// ## Create a shopping cart for a customer ## //
 	private static ShoppingCart firstCustomer = new ShoppingCart("first Customer");
@@ -44,14 +41,9 @@ public class Main {
 		theItem = new Item("box of imported chocolates", 11.25, true, true, 10);
 		theFirstStore.addItemInStore(theItem);
 //============================================================================//		
-
-		
+	
 		theFirstStore.shopping(firstCustomer); //start shopping for 'firstCustomer'
 		firstCustomer.calculateAndPayBillWithTax(); // 'firstCustomer'
-		
-		
-
-	}
-
 	
+	}	
 }

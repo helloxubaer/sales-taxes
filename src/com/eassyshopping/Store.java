@@ -53,8 +53,7 @@ public class Store {
 	// verify item name provided by user
 	public boolean verifyItemName(String itemName) {
 		Item checkingItem = itemsInStore.get(itemName);
-		return(checkingItem != null);
-		
+		return(checkingItem != null);		
 	}
 		
 	// get item name, check if it is in store
@@ -72,8 +71,7 @@ public class Store {
 	//get available quantity
 	public int getQuantity(String itemName) {
 		Item checkingItem = itemsInStore.get(itemName);
-		return checkingItem.getQuantity();
-		
+		return checkingItem.getQuantity();	
 	}
 	
 	// get valid quantity from user
@@ -133,7 +131,7 @@ public class Store {
 			String buyingItemName = getItemNameFromUser().trim();
 			int buyingQuantity = getQuantityFromUser(buyingItemName);
 			
-			Item buyingtItem = itemsInStore.get(buyingItemName);
+			Item buyingtItem = itemsInStore.get(buyingItemName); // fetch item
 			theCart.addToShoppingCart(buyingtItem, buyingQuantity);
 			sellItemsFromStore(buyingItemName,buyingQuantity);			
 			

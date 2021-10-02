@@ -45,10 +45,12 @@ public class ShoppingCart {
 		System.out.println("\n======= Receipt =======");
 		double totalBill = 0.0;
 		double totalSalesTaxes = 0.0;
+		
 		for(Map.Entry<Item, Integer> item : itemsInCart.entrySet()) {
 			StringBuilder receipt = new StringBuilder();
 			double priceAfterTax;
 			double salesTaxes;
+			//================ to new method =====================//
 			double itemValue = (item.getValue()*item.getKey().getPrice());
 			
 			if(item.getKey().isExempted()) {
@@ -65,6 +67,8 @@ public class ShoppingCart {
 				salesTaxes = salesTaxes + roundUp(itemValue*.05);
 				priceAfterTax = priceAfterTax + roundUp(itemValue*.05);
 			}
+			//================== to new method ===================//
+			
 			
 			totalSalesTaxes = totalSalesTaxes + salesTaxes;
 			totalBill = totalBill + priceAfterTax;		
@@ -86,9 +90,4 @@ public class ShoppingCart {
 		return Collections.unmodifiableMap(itemsInCart);
 	}
 	
-	
-	
-	
-
-    
 }

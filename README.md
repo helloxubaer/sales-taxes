@@ -50,4 +50,5 @@ ASSUMPTIONS
 6. customer must pay once added in the basket, as no reduction from the basket functionality added
 7. No exit, without leaving through cash counter, put a name when asking for product name, put quantity 0, and type "n" to leave.
 8. jdk11 environment is possible, test classes utilized junit 5.
+9. .files and bin folder kept in git if necessay.
 

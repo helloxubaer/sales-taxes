@@ -12,9 +12,9 @@ Write an application that prints out the receipt details for these shopping bask
 
 ======================= SOLUTION ===================
 
-To solve the project two class are written Store Class and ShoppingCart class. Store class contains all the necessary 
+To solve the project three classes are written Store Class and ShoppingCart class. Store class contains all the necessary 
 methods such as add items in store, verify user inputs, check items' availibity, do actual shopping etc. ShoppingCart class
-contains necessary methods to calculate the price with tax, and to generate receipt. Main class Create a store and shopping cart for a customer in that particular store.
+contains necessary methods to calculate the price with tax, and to generate receipt, whereas Item class defines an item. Main class Create a store and shopping cart for a customer in that particular store.
 Methods are quite individulal and simple, one can easily integrate more functionalities hence everyone is invited to pull.
 
 	

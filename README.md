@@ -1,4 +1,4 @@
-## Problem 1: SALES TAXES
+## Problem: SALES TAXES
 Basic sales tax is applicable at a rate of 10% on all goods, except books, food, and medical
 products that are exempt. Import duty is an additional sales tax
 applicable on all imported goods at a rate of 5%, with no exemptions. When I purchase items
@@ -10,7 +10,7 @@ sales tax.
 Write an application that prints out the receipt details for these shopping baskets...
 
 
-======================================================================= SOLUTION =======================================================================
+======================= SOLUTION ===================
 
 To solve the project two class are written Store Class and ShoppingCart class. Store class contains all the necessary 
 methods such as add items in store, verify user inputs, check items' availibity, do actual shopping etc. ShoppingCart class
@@ -19,11 +19,14 @@ Methods are quite individulal and simple, one can easily integrate more function
 
 	
 ENVIRONMENT
+
 Code has been developed and tested in jdk11 environment
 junit5 classes called to implement a unit test.
 
 USAGE
+
 In Main Class:
+
 For time being store personnel should add items in store with specification (name,price,isIported,isExepted,quantity)
 One should create a store object with store name // firstStore
 And, one shopping cart for a user/customer should be created for that store // firstCustomer
@@ -34,6 +37,7 @@ Calculate bill and get receipt // firstCustomer.calculateAndPayBillWithTax();
 ** Demo items are already added in the main class. Once can manipulate those.
 
 ASSUMPTIONS
+
 1. Console base solution is ok, as no specific type is mentioned in the challenge
 2. A store is needed to shop, and a shopping cart to put the item in.
 3. There are no database/file sources for a store, hence manual input.

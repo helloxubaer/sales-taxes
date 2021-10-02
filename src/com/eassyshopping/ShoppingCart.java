@@ -5,7 +5,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 /*
- * The ShoppingCart class contains items and calculate bills accordingly 
+ * The ShoppingCart class contains bought items and calculate bills accordingly 
  */
 public class ShoppingCart {
     private final String name;
@@ -36,8 +36,7 @@ public class ShoppingCart {
 	
 	// return 2 decimal places
 	private String twoDecimalPlaces(double theNmber) {
-		return String.format(java.util.Locale.US,"%.2f", theNmber);	
-		
+		return String.format(java.util.Locale.US,"%.2f", theNmber);			
 	}
 	
 	//calculate cost and print receipt
@@ -67,9 +66,8 @@ public class ShoppingCart {
 				salesTaxes = salesTaxes + roundUp(itemValue*.05);
 				priceAfterTax = priceAfterTax + roundUp(itemValue*.05);
 			}
-			//================== to new method ===================//
-			
-			
+			//==================  to new method ===================//
+					
 			totalSalesTaxes = totalSalesTaxes + salesTaxes;
 			totalBill = totalBill + priceAfterTax;		
 			receipt.append("> " + item.getValue() + " " + item.getKey().getName());

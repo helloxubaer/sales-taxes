@@ -7,7 +7,7 @@ public class Main {
 
 	// ## Create a store object ## //
 	private static Store theFirstStore = new Store();
-	// ## Create a shopping cart for a customer ## //
+	// ## Create a shopping cart for a customer ## // 
 	private static ShoppingCart firstCustomer = new ShoppingCart("first Customer");
 	
 	public static void main(String[] args) {
@@ -44,6 +44,6 @@ public class Main {
 	
 		theFirstStore.shopping(firstCustomer); //start shopping for 'firstCustomer'
 		firstCustomer.calculateAndPayBillWithTax(); // 'firstCustomer'
-	
+		
 	}	
 }

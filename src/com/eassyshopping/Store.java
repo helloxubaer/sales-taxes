@@ -100,15 +100,14 @@ public class Store {
 		
 		return inputQuantity;
 	}
-	
-	
+		
 	// reduce sold quantity from available store
 	public void sellItemsFromStore(String itemName, int desiredQuntity) {
 		Item sellingItem = itemsInStore.get(itemName);
 		sellingItem.reduceQuantity(desiredQuntity);
 	}
 	
-	// continue shop
+	// continue shopping? take user input
 	public boolean isShoppingContinue() {
 		while(true) {
 			System.out.println("Continue shopping ? press y/n: ");
